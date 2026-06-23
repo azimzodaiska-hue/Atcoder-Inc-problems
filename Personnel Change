@@ -19,7 +19,7 @@ def input1():
             print('Ошибка')
 # input number of departments and employees
 input_list1 = input1()
-employees, departments = input_list1[0], input_list1[-1]
+employee, departments = input_list1[0], input_list1[-1]
 # input validation 1<=term1,term2<=departments
 def input2():
     while True:
