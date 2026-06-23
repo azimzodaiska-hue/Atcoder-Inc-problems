@@ -1,0 +1,54 @@
+# input validation
+def input_data(prompt, data_type):
+    while True:
+        input1 = input(prompt)
+        try:
+            return data_type(input1)
+        except ValueError:
+            print(f"Введите правильно т{data_type.__name__}")
+
+# input validation n , m 1<=n,m<=100
+def input1():
+    while True:
+        input3 = input_data('Введите', str)
+        try:
+            numbers = list(map(int, input3.split()))
+            if all(1 <= i <= 100 for i in numbers) and len(numbers) == 2:
+                return numbers
+        except ValueError:
+            print('Ошибка')
+# input number of departments and employees
+input_list1 = input1()
+employees, departments = input_list1[0], input_list1[-1]
+# input validation 1<=term1,term2<=departments
+def input2():
+    while True:
+        input3 = input_data('Введите', str)
+        try:
+            numbers = list(map(int, input3.split()))
+            if all(1 <= i <= departments for i in numbers) and len(numbers) == 2:
+                return numbers
+        except ValueError:
+            print('Ошибка')
+
+def solve():
+    # lists for now and next terms
+    now_term = []
+    next_term = []
+
+    for _ in range(employee):
+        input_list2 = input2()
+        # term1 = now, term2 = next
+        term1, term2 = input_list2[0], input_list2[-1]
+        # add to lists 
+        now_term.append(term1)
+        next_term.append(term2)
+
+    for i in range(1, departments+1):
+        # count the numbers that are repeated
+        x = next_term.count(i)
+        j = now_term.count(i)
+        # The problem says to find the difference between then and now
+        print(x - j)
+# call the function solve
+solve()
